@@ -1,0 +1,1 @@
+A note application that creates, updates, searches, edit and delete notes. Written in JavaScript 
