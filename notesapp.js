@@ -13,11 +13,20 @@ function NotesApplication(author){
 		}
 	}
 
-	this.getnote = function(note_id){
+	this.getNote = function(note_id){
 		var string;
-		string= this.note[note_id];
+		string = this.note[note_id];
 		return string;
 	}
-	
 
+	this.search = function(search_text){
+		for(var i = 0; i < this.note.length; i++){
+			if(this.note[i].includes(search_text)){
+				string='';
+				string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author' + this.author;
+				return(string);
+			}
+		}
+		
+	}
 }
