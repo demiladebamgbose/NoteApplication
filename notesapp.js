@@ -1,48 +1,54 @@
 function NotesApplication(author){
-	this.author=author;
+	this.author = author;
 	this.note = [];
 	this.create = function(note_content){
-		this.note.push(note_content);
-	}
-	this.listNotes = function(){
-		var string;
-		for(var i =0; i < this.note.length; i++){
-			string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author' + this.author+'\n';
-			return(string);
+		if(note_content !== ''){
+			this.note.push(note_content);
+			console.log( note_content +" created" );
 		}
-	}
+	};
+	this.listNotes = function(){
+		var output_string;
+		for(var i = 0; i < this.note.length; i++){
+			output_string='';
+			output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+'\n';
+			console.log(output_string);
+		}
+	};
 
 	this.getNote = function(note_id){
-		var string;
-		string = this.note[note_id];
-		return string;
-	}
+		if(!(isNaN(note_id))){
+			
+			var output_string = this.note[note_id];
+			console.log(output_string);
+		}
+	};
 
 	this.search = function(search_text){
-		var string;
-		string += 'Showing results for search'+ search_text;
+		var output_string='';
+		output_string += 'Showing results for search  '+ search_text+ '\n';
 		for(var i = 0; i < this.note.length; i++){
 			if(this.note[i].includes(search_text)){
-				string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author' + this.author+ '\n';
-				return(string);
+				output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+ '\n';
+				console.log(output_string);
 			}
 		}
-	}
+	};
 
 	this.delete = function(note_id){
-		if(!(note_id.isNaN)){
+		if(!(isNaN(note_id))){
 			this.note.splice(note_id, 1);
-			return true;
+			console.log( 'Note at ' +note_id+ ' deleted');
 		}
-	}
+	};
 
 	this.edit = function(note_id, new_content){
-		if(!(note_id.isNaN)){
-			if(new_content != ''){
+		if(!(isNaN(note_id))){
+			if(new_content !==''){
 				this.note[note_id]=new_content;
-				return true;
+				console.log(new_content +' saved');
 			}
 		}
-	}
+	};
 
 }
