@@ -73,3 +73,23 @@ describe("NotesApplication listNotes function ", function(){
 }); 
 
 
+// test for getNote method
+describe("NotesApplication  getNote function", function(){
+	beforeEach(function(){
+		newNote = new NotesApplication('Jude');
+		newNote.create('First Note');
+		newNote.create('Second Note');
+		newNote.create('Third Note');
+	});
+
+	it("should return invald note id  if note_id is not a number", function(){
+		expect(newNote.getNote('a')).toEqual('Note Id Invalid.');
+	});
+
+	it("should return invald note id  if note_id is not an in dex in note ", function(){
+		expect(newNote.getNote(6)).toEqual('Note Id Invalid.');
+		expect(newNote.getNote(-5)).toEqual('Note Id Invalid.')
+	});
+});
+
+// test for search methos

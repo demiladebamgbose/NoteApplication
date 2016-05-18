@@ -26,13 +26,13 @@ if((typeof author == 'string') && ( author !== '')){
 		};
 
 		this.getNote = function(note_id){
-			if((!(isNaN(note_id)) || (note_id >= this.note.length))){
+			if((typeof note_id == 'number') && ((note_id >= 0) && (note_id < this.note.length))){
 				
 				var output_string = this.note[note_id];
 				console.log(output_string);
 				return;
 			}
-			console.log('Note Id Invalid.');
+			return 'Note Id Invalid.';
 		};
 
 		this.search = function(search_text){
