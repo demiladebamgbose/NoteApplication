@@ -19,7 +19,7 @@ function NotesApplication(author){
 	};
 
 	this.getNote = function(note_id){
-		if((!(isNaN(note_id)) || (note_id >= this.note.length)){
+		if((!(isNaN(note_id)) || (note_id >= this.note.length))){
 			
 			var output_string = this.note[note_id];
 			console.log(output_string);
@@ -45,7 +45,7 @@ function NotesApplication(author){
 	};
 
 	this.delete = function(note_id){
-		if(!(isNaN(note_id))  || (note_id <= this.note.length)){
+		if(!(isNaN(note_id))  || (note_id >= this.note.length)){
 			this.note.splice(note_id, 1);
 			console.log( 'Note at ' +note_id+ ' deleted');
 			return;
@@ -54,7 +54,7 @@ function NotesApplication(author){
 	};
 
 	this.edit = function(note_id, new_content){
-		if(!(isNaN(note_id))  || (note_id <= this.note.length)){
+		if(!(isNaN(note_id))  || (note_id >= this.note.length)){
 			if(new_content !==''){
 				this.note[note_id]=new_content;
 				console.log(new_content +' saved');
