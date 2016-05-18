@@ -88,8 +88,24 @@ describe("NotesApplication  getNote function", function(){
 
 	it("should return invald note id  if note_id is not an in dex in note ", function(){
 		expect(newNote.getNote(6)).toEqual('Note Id Invalid.');
-		expect(newNote.getNote(-5)).toEqual('Note Id Invalid.')
+		expect(newNote.getNote(-5)).toEqual('Note Id Invalid.');
 	});
 });
 
-// test for search methos
+// test for search method
+describe("NotesApplication search function", function(){
+	beforeEach(function(){
+		newNote = new NotesApplication('Jude');
+		newNote.create('First Note');
+		newNote.create('Second Note');
+		newNote.create('Third Note');
+	});
+
+	it("should return search_text not found if not found", function(){
+		expect(newNote.search('ladies')).toEqual('No note matches ladies');
+	});
+	it("should return found search_text if found", function(){
+		expect(newNote.search('Note')).toEqual('found Note');
+	});
+
+	});

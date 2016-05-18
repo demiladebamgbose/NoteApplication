@@ -43,12 +43,14 @@ if((typeof author == 'string') && ( author !== '')){
 				if(this.note[i].toLowerCase().includes(search_text.toLowerCase())){
 					output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+ '\n';
 					console.log(output_string);
-					found = false; 
+					found = false;
+
 				}
 			}
 			if(found){
-				console.log('No note matches '+ search_text);
+				return ('No note matches '+ search_text );
 			}
+			return ('found '+search_text); 
 		};
 
 		this.delete = function(note_id){
