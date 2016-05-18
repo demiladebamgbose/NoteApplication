@@ -12,10 +12,16 @@ if((typeof author == 'string') && ( author !== '')){
 		};
 		this.listNotes = function(){
 			var output_string;
-			for(var i = 0; i < this.note.length; i++){
-				output_string='';
-				output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+'\n';
-				console.log(output_string);
+			if(this.note.length > 0){
+				for(var i = 0; i < this.note.length; i++){
+					output_string='';
+					output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+'\n';
+					console.log(output_string);
+					return true;
+				}
+			}
+			else{
+				return 'note list empty';
 			}
 		};
 

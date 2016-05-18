@@ -52,3 +52,24 @@ describe("NotesApplication create function", function(){
 	});
 
 });
+
+// test for listNotes method
+var anotherNote;
+describe("NotesApplication listNotes function ", function(){
+	beforeEach(function() {
+		 newNote = new NotesApplication('Jude');
+		 newNote.create('First Note');
+		 newNote.listNotes();
+		 anotherNote = new NotesApplication('Demi');
+	});
+
+	it('returns true after listing notes', function(){
+		expect(newNote.listNotes()).toEqual(true);
+	});
+
+	it('returns note list empty if note is empty', function(){
+		expect(anotherNote.listNotes()).toEqual('note list empty');
+	});
+}); 
+
+
