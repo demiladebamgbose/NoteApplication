@@ -28,7 +28,7 @@ function NotesApplication(author){
 		var output_string='';
 		output_string += 'Showing results for search  '+ search_text+ '\n';
 		for(var i = 0; i < this.note.length; i++){
-			if(this.note[i].includes(search_text)){
+			if(this.note[i].toLowerCase().includes(search_text.toLowerCase())){
 				output_string += 'Note ID: '+ i +'\n' + this.note[i] + '\n' + 'By Author  ' + this.author+ '\n';
 				console.log(output_string);
 			}
