@@ -119,12 +119,21 @@ describe("NotesApplication edit function", function(){
 		newNote.create('Second Note');
 		newNote.create('Third Note');
 	});
-	it("should return invald note id  if note_id is not a number", function(){
-		expect(newNote.getNote('a')).toEqual('Note Id Invalid.');
+	it("should return note content saved for a valid note_id and a valid note content", function(){
+		expect(newNote.edit(2,'I have been changed')).toEqual('I have been changed saved');
 	});
 
-	it("should return invald note id  if note_id is not an in dex in note ", function(){
-		expect(newNote.getNote(6)).toEqual('Note Id Invalid.');
-		expect(newNote.getNote(-5)).toEqual('Note Id Invalid.');
+	it("should return invalid note id  if note_id is not an index in note ", function(){
+		expect(newNote.edit(6,"edit this")).toEqual('Note Id Invalid.');
+		expect(newNote.edit(-5,"edit this")).toEqual('Note Id Invalid.');
 	});
+
+	it("should return Cannot update an empty note for an invalid note content ", function(){
+		expect(newNote.edit(2,'')).toEqual('Cannot update an empty note');
+	});
+
+	it("should return invalid note id  if note_id is not an index in note and an invalid note content ", function(){
+		expect(newNote.edit(6,"")).toEqual('Note Id Invalid.');
+	});
+
 });

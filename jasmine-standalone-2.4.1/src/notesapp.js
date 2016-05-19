@@ -66,15 +66,14 @@ if((typeof author == 'string') && ( author !== '')){
 			if((typeof note_id == 'number') && ((note_id >= 0) && (note_id < this.note.length))){
 				if(new_content !==''){
 					this.note[note_id]=new_content;
-					console.log(new_content +' saved');
-					return;
+					return(new_content +' saved');
+					
 				}
 				else{
-					console.log('Cannot update an empty note');
-					return;
+					return('Cannot update an empty note');
 				}
 			}
-			console.log('Note Id Invalid.');
+			return('Note Id Invalid.');
 		};
 	}
 	else{
