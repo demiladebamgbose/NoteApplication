@@ -136,4 +136,28 @@ describe("NotesApplication edit function", function(){
 		expect(newNote.edit(6,"")).toEqual('Note Id Invalid.');
 	});
 
+	it("should return invald note id  if note_id is not a number", function(){
+		expect(newNote.edit('a','change this')).toEqual('Note Id Invalid.');
+	});
+
 });
+
+// test for delete method
+describe("NotesApplication delete method", function(){
+	beforeEach(function(){
+		newNote = new NotesApplication('Jude');
+		newNote.create('First Note');
+		newNote.create('Second Note');
+		newNote.create('Third Note');
+	});
+
+	it("should return invalid note id  if note_id is not an index in note ", function(){
+		expect(newNote.delete(6)).toEqual('Note Id Invalid.');
+		expect(newNote.delete(-5)).toEqual('Note Id Invalid.');
+	});
+
+	it("should return invald note id  if note_id is not a number", function(){
+		expect(newNote.delete('a')).toEqual('Note Id Invalid.');
+	});
+});
+

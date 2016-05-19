@@ -56,10 +56,10 @@ if((typeof author == 'string') && ( author !== '')){
 		this.delete = function(note_id){
 			if((typeof note_id == 'number') && ((note_id >= 0) && (note_id < this.note.length))){
 				this.note.splice(note_id, 1);
-				console.log( 'Note at ' +note_id+ ' deleted');
-				return;
+				return( 'Note at ' +note_id+ ' deleted');
+				
 			}
-			console.log('Note Id Invalid.');
+			return('Note Id Invalid.');
 		};
 
 		this.edit = function(note_id, new_content){
