@@ -149,6 +149,7 @@ describe("NotesApplication delete method", function(){
 		newNote.create('First Note');
 		newNote.create('Second Note');
 		newNote.create('Third Note');
+		length = newNote.note.length;
 	});
 
 	it("should return invalid note id  if note_id is not an index in note ", function(){
@@ -158,6 +159,11 @@ describe("NotesApplication delete method", function(){
 
 	it("should return invald note id  if note_id is not a number", function(){
 		expect(newNote.delete('a')).toEqual('Note Id Invalid.');
+	});
+
+	it("should reduce the lenth of note array by one", function(){
+		newNote.delete(2);
+		expect(newNote.note.length).toEqual(length - 1);
 	});
 });
 
