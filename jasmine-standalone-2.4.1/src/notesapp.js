@@ -54,7 +54,7 @@ if((typeof author == 'string') && ( author !== '')){
 		};
 
 		this.delete = function(note_id){
-			if(!(isNaN(note_id))  || (note_id >= this.note.length)){
+			if((typeof note_id == 'number') && ((note_id >= 0) && (note_id < this.note.length))){
 				this.note.splice(note_id, 1);
 				console.log( 'Note at ' +note_id+ ' deleted');
 				return;
@@ -63,7 +63,7 @@ if((typeof author == 'string') && ( author !== '')){
 		};
 
 		this.edit = function(note_id, new_content){
-			if(!(isNaN(note_id))  || (note_id >= this.note.length)){
+			if((typeof note_id == 'number') && ((note_id >= 0) && (note_id < this.note.length))){
 				if(new_content !==''){
 					this.note[note_id]=new_content;
 					console.log(new_content +' saved');
