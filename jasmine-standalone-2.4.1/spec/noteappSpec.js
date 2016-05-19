@@ -142,6 +142,7 @@ describe("NotesApplication edit function", function(){
 
 });
 
+
 // test for delete method
 describe("NotesApplication delete method", function(){
 	beforeEach(function(){
@@ -165,5 +166,15 @@ describe("NotesApplication delete method", function(){
 		newNote.delete(2);
 		expect(newNote.note.length).toEqual(length - 1);
 	});
+
+	it("should return Note at note_id deleted", function(){
+		expect(newNote.delete(2)).toEqual('Note at 2 deleted');
+	});
 });
 
+//test for search method
+describe("NotesApplication search function", function(){
+	it('should return a string', function(){
+		expect(typeof newNote.search('Note')).toEqual('string');
+	});
+});
